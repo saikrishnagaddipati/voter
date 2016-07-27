@@ -3,7 +3,9 @@ class CommentsController < ApplicationController
 
   # GET /comments
   # GET /comments.json
-  
+  def index
+    @comments = Comment.all
+  end
 
   # POST /comments
   # POST /comments.json
@@ -32,7 +34,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to links_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
