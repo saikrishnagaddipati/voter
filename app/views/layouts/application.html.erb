@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Aption</title>
+  <title>Ask</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,7 +10,8 @@
   <header class="navbar navbar-default" role="navigation">
     <div class="navbar-inner">
       <div class="container">
-        <div id="logo" class="navbar-brand"><%= link_to "Aption marketing", root_path %></div>
+        <div id="logo" class="navbar-brand"><%= link_to "ASK", root_path %></div>
+
         <nav class="collapse navbar-collapse navbar-ex1-collapse">
           <% if user_signed_in? -%>
             <ul class="nav navbar-nav navbar-right">
@@ -20,7 +21,7 @@
             </ul>
           <% else -%>
             <ul class="nav navbar-nav pull-right">
-              <li><%= link_to 'Sign up', new_user_registration_path %></li>
+              <li><%= link_to 'Don\'t have an Account? Sign up', new_user_registration_path %></li>
               <li><%= link_to 'Sign in', new_user_session_path %></li>
             </ul>
           <% end -%>
@@ -28,16 +29,43 @@
       </div>
     </div>
   </header>
+      <div class="asklogo">
+        <%= image_tag("ask.png", :alt => "rss feed") %>
+      </div>
 
-  <div id="main_content" class="container">
+  <div id="main_content" class="container" style="float: right; width: 580px; background-color: white;">
     <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert alert-info") %>
     <% end %>
 
+    
+
       <div id="content" class="col-md-9 center-block">
         <%= yield %>
       </div>
-    </div>
   </div>
+
+  <div> 
+  <p> Lorem ipsum dolor sit amet, unum pericula accommodare est at, eius sonet at vis. Eu sea eius timeam prodesset, dolore lobortis ei sea. Eam an vero noster voluptatibus, te putant luptatum adipisci vix. Cu nostrud sententiae per, prompta percipit honestatis et eos, usu ea dicat regione voluptatum. Eleifend disputationi pri an, vis no purto adolescens, sanctus atomorum cu vis. Nihil efficiendi est cu, ea sit dico alia dictas.Dicat argumentum ex sit, ex eam affert discere delicatissimi. Usu oblique commune expetenda ut. Ad democritum reprehendunt qui, aperiri conceptam et vix, ad mei admodum percipit. Vel ne ludus soluta, ea vel justo mediocrem definitionem, et iusto scripta has. Et nam diam aliquando democritum, meliore mnesarchum intellegebat et sea. Omnes constituam an his, ad tantas mollis signiferumque eum.Ne pro dicat antiopam, omnes imperdiet constituam ut vis. Reque explicari mei an, quodsi lucilius definitiones vis cu. Vis et sonet feugait reformidans. Vel clita fierent ex. Veri iriure quo et.Quo nostrum salutandi adipiscing an. His ne nibh congue quando. Vim illud principes te, vel vero tollit in. Hinc iisque platonem cum ei, erant sonet scriptorem eam ex, prodesset omittantur at pro. Habeo suscipiantur voluptatibus id vim.Possit phaedrum temporibus eam et, no mei viris civibus, nec at harum legendos. Ex vix cibo dolorum philosophia, mei putant vocent qualisque in, oblique accumsan mei ut. Et quo mundi quaestio vituperata, ut tation nostrum vivendum qui. Autem senserit mel ea. Eos voluptaria rationibus  eius timeam prodesset, dolore lobortis ei sea. Eam an vero noster voluptatibus, te putant luptatum adipisci vix. Cu nostrud sententiae per, prompta percipit honestatis et eos, usu ea dicat regione voluptatum. Eleifend disputationi pri an, vis no purto adolescens, sanctus atomorum cu vis. Nihil efficiendi est cu, ea sit dico alia dictas.Dicat argumentum ex sit, ex eam affert discere delicatissimi. Usu oblique commune expetenda ut. Ad democritum reprehendunt qui, aperiri conceptam et vix, ad mei admodum percipit. Vel ne ludus soluta, ea vel justo mediocrem definitionem, et iusto scripta has. Et nam diam aliquando democritum, meliore mnesarchum intellegebat et sea. Omnes constituam an his, ad tantas mollis signiferumque eum.Ne pro dicat antiopam, omnes imperdiet constituam ut vis. Reque explicari mei an, quodsi lucilius definitiones vis cu. Vis et sonet feugait reformidans. Vel clita fierent ex. Veri iriure quo et.Quo nostrum salutandi adipiscing an. His ne nibh congue quando. Vim illud principes te, vel vero tollit in. Hinc iisque platonem cum ei, erant sonet scriptorem eam ex, prodesset omittantur at pro. Habeo suscipiantur voluptatibus id vim.Possit phaedrum temporibus eam et, no mei viris civibus, nec at harum legendos. Ex vix cibo dolorum philosophia, mei putant vocent qualisque in, oblique accumsan mei ut. Et quo mundi quaestio vituperata, ut tation nostrum vivendum qui. Autem senserit mel ea. Eos voluptaria rationi ullamcorper ne, est vocent civibus quaerendum cu, id quidam patrioque vis. Nobis detracto eu pri, platonem suavitate reformidans eu eum.</p>
+</div>
+<hr>
+  <div class = "page"> 
+    <h2> How It Works:</h2>
+  </div>
+  
+    <div class = "marginn">
+      <div class="imgContainer">
+        <%= image_tag("img1.jpg", :alt => "rss feed") %>
+        <p>Select Your Leader</p>
+      </div>
+        <div class="imgContainer">
+          <%= image_tag("img2.jpg", :alt => "rss feed") %>
+          <p>Comment about your leader</p>
+        </div>
+          <div class="imgContainer">
+          <%= image_tag("img3.jpg", :alt => "rss feed") %>
+          <p>Vote for your leader</p>
+          </div>
+    </div>
 </body>
 </html>
