@@ -76,8 +76,35 @@
     }
 
     .marginn {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
     display: flex;
     justify-content: space-between;
+    }
+
+    .marginn2 {
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+    justify-content: space-between;
+    }
+
+    .page2 h2 {
+    text-align: center;
+    }
+
+    .textContainer1 p{
+     width:200px;
+     height:200px;
+    }
+
+    .foooter {
+    background-color: #1D4959;
+
+    }
+    .foooter p {
+     text-color: white;
+    }
+    .indextext p {
+    margin-left: 30px;
     }
