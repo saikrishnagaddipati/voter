@@ -94,17 +94,26 @@
     }
 
     .textContainer1 p{
-     width:200px;
+     width:300px;
      height:200px;
     }
 
     .foooter {
-    background-color: #1D4959;
+    position: relative;
+    z-index: 10;
+    height: 13em;
+    margin-top: black;
+    background-color: #31C8C0;
 
     }
-    .foooter p {
-     text-color: white;
-    }
+
     .indextext p {
     margin-left: 30px;
+    }
+
+    #footerline hr {
+    color: #31C8C0;
+    background-color: #31C8C0;
+    width: 100%;
+    height: 5px; 
     }
