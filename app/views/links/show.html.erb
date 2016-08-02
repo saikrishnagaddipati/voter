@@ -29,7 +29,8 @@
 <br>
 <br>
 <div class="counter">
-<%= "#{@link.impressions.count}  VIEWS" %>
+<%= "#{@link.impressions.count}  VIEWS as of " %> 
+<%= Time.now.strftime("%d/%m/%Y %H:%M") %>
 </div>
 
 <h3 class="comments_title">
