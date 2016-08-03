@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  impressionist actions: [:show], unique: [:session_hash]
+  impressionist actions: [:show], unique: [:session_hash, :ip_address]
   before_action :set_link, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]

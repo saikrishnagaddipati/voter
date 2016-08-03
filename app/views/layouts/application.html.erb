@@ -59,6 +59,12 @@
   Currently only two states are being covered. One is Telangana and one is Andhra Pradesh. Only the rulling party memers who are in  assembly level and parliment level positions will be displayed. Later versions will include the members of Rajya Sabha followed by the opposition party leaders and elected members.  </p>
 </div>
 <hr>
+<div class="piechart">
+<%= pie_chart Impression.group_by_day(:created_at, last: 3).count %>
+</div>
+<br>
+<span class="blink">View Counter</span>
+<hr>
   <div class = "page"> 
     <h2> How It Works:</h2>
   </div>
