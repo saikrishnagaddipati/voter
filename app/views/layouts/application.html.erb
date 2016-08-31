@@ -6,131 +6,132 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <header class="navbar navbar-default" role="navigation">
-    <div class="navbar-inner">
-      <div class="container">
-        <div id="logo" class="navbar-brand"><%= link_to "ASK", root_path %></div>
+  <body>
+    <header class="navbar navbar-default" role="navigation">
+      <div class="navbar-inner">
+        <div class="container">
+          <div id="logo" class="navbar-brand"><%= link_to "ASK", root_path %></div>
 
-        <nav class="collapse navbar-collapse navbar-ex1-collapse">
-          <% if user_signed_in? -%>
-            <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to 'Submit link', new_link_path %></li>
-              <li><%= link_to 'Account', edit_user_registration_path %></li>
-              <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-            </ul>
-          <% else -%>
-            <ul class="nav navbar-nav pull-right">
-              <li><%= link_to 'Don\'t have an Account? Sign up', new_user_registration_path %></li>
-              <li><%= link_to 'Sign in', new_user_session_path %></li>
-            </ul>
-          <% end -%>
-        </nav>
+          <nav class="collapse navbar-collapse navbar-ex1-collapse">
+            <% if user_signed_in? -%>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to 'Submit link', new_link_path if current_user.admin? %></li>
+                <li><%= link_to 'Account', edit_user_registration_path %></li>
+                <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+              </ul>
+            <% else -%>
+              <ul class="nav navbar-nav pull-right">
+                <li><%= link_to 'Don\'t have an Account? Sign up', new_user_registration_path %></li>
+                <li><%= link_to 'Sign in', new_user_session_path %></li>
+              </ul>
+            <% end %>
+          </nav>
+        </div>
       </div>
+    </header>
+        <div class="asklogo">
+          <%= image_tag("ask.png", :alt => "rss feed") %>
+        </div>
+
+    <div id="main_content" class="container" style="float: right; width: 580px; background-color: white;">
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-info") %>
+      <% end %>
+
+
+        <div id="content" class="col-md-9 center-block">
+          <%= yield %>
+        </div>
     </div>
-  </header>
-      <div class="asklogo">
-        <%= image_tag("ask.png", :alt => "rss feed") %>
-      </div>
 
-  <div id="main_content" class="container" style="float: right; width: 580px; background-color: white;">
-    <% flash.each do |name, msg| %>
-      <%= content_tag(:div, msg, class: "alert alert-info") %>
-    <% end %>
 
-    
+    <div class="whorwe">
+    <tr>
+    <td> who are we</td>
+    <td> ? </td>
+    </tr>
+    </div>
 
-      <div id="content" class="col-md-9 center-block">
-        <%= yield %>
-      </div>
+    <br>
+    <div class= "indextext"> 
+     <p> &emsp;  &emsp; We are a group of people who formed a Non-profit organization for the development of telugu speaking states. Our portal helps you to connect with your Member's of Legislative assembly and also Member's of parliment. See the available Public schemes, developement's and Gov't services being designed and implemented by your respective state governments and leader's. <br> &emsp;&emsp;
+    Currently only two states are being covered. One is Telangana and one is Andhra Pradesh. Only the rulling party memers who are in  assembly level and parliment level positions will be displayed. Later versions will include the members of Rajya Sabha followed by the opposition party leaders and elected members.  </p>
   </div>
-
-
-  <div class="whorwe">
-  <tr>
-  <td> who are we</td>
-  <td> ? </td>
-  </tr>
+  <hr>
+  <div class="piechart">
+  <%= pie_chart Impression.group_by_day(:created_at, last: 3).count %>
   </div>
 
   <br>
-  <div class= "indextext"> 
-   <p> &emsp;  &emsp; We are a group of people who formed a Non-profit organization for the development of telugu speaking states. Our portal helps you to connect with your Member's of Legislative assembly and also Member's of parliment. See the available Public schemes, developement's and Gov't services being designed and implemented by your respective state governments and leader's. <br> &emsp;&emsp;
-  Currently only two states are being covered. One is Telangana and one is Andhra Pradesh. Only the rulling party memers who are in  assembly level and parliment level positions will be displayed. Later versions will include the members of Rajya Sabha followed by the opposition party leaders and elected members.  </p>
-</div>
-<hr>
-<div class="piechart">
-<%= pie_chart Impression.group_by_day(:created_at, last: 3).count %>
-</div>
-<br>
-<span class="blink">View Counter</span>
-<hr>
-  <div class = "page"> 
-    <h2> How It Works:</h2>
-  </div>
-  
-    <div class = "marginn">
-      <div class="imgContainer">
-        <%= image_tag("img1.jpg", :alt => "rss feed") %>
-        <br>
-        <br>
-        <br>
-        <p>Select Your Leader</p>
-      </div>
+  <span class="blink">View Counter</span>
+  <hr>
+    <div class = "page"> 
+      <h2> How It Works:</h2>
+    </div>
+    
+      <div class = "marginn">
         <div class="imgContainer">
-          <%= image_tag("img2.jpg", :alt => "rss feed") %>
+          <%= image_tag("img1.jpg", :alt => "rss feed") %>
           <br>
           <br>
           <br>
-          <p>Comment about your leader</p>
+          <p>Select Your Leader</p>
         </div>
           <div class="imgContainer">
-          <%= image_tag("img3.jpg", :alt => "rss feed") %>
-          <br>
-          <br>
-          <br>
-          <p>Vote for your leader</p>
+            <%= image_tag("img2.jpg", :alt => "rss feed") %>
+            <br>
+            <br>
+            <br>
+            <p>Comment about your leader</p>
           </div>
-    </div>
-    <hr>
-    <div class = "page2"> 
-    <h2> Things to know!!!</h2>
-  </div>
-  <br>
-  <br>
-  
-    <div class = "marginn2">
-      <div class="textContainer1">
-        <p>Keep in mind that you’re debating the issue, not attacking the person. Hopefully, you like whoever you’re talking with – and you both want to keep it this way! Avoid using accusatory statements or bringing the other person’s personal traits into the conversation. Ultimately, you’re both seeking the truth. </p>
-        <br>
-        <h3>Select Your Leader</h3>
+            <div class="imgContainer">
+            <%= image_tag("img3.jpg", :alt => "rss feed") %>
+            <br>
+            <br>
+            <br>
+            <p>Vote for your leader</p>
+            </div>
       </div>
+      <hr>
+      <div class = "page2"> 
+      <h2> Things to know!!!</h2>
+    </div>
+    <br>
+    <br>
+    
+      <div class = "marginn2">
         <div class="textContainer1">
-          <p>Avoid mocking your discussion partner’s opinions. This doesn’t mean you should avoid any humor or sarcasm – just remember to keep it respectful. Otherwise, you might find yourself getting a taste of your own medicine and the conversation can become an insult contest rather than a mature exchange. </p>
+          <p>Keep in mind that you’re debating the issue, not attacking the person. Hopefully, you like whoever you’re talking with – and you both want to keep it this way! Avoid using accusatory statements or bringing the other person’s personal traits into the conversation. Ultimately, you’re both seeking the truth. </p>
           <br>
-          <h3>Comment about your leader</h3>
+          <h3>Select Your Leader</h3>
         </div>
           <div class="textContainer1">
-          <p>If you see comments that break these rules, please report them. Do not feed the trolls or participate in internet fights by responding to nonconstructive content.It doesn't matter who started. Users who repeatedly break our behavior rules will continue to be banned.</p>
-          <br>
-          <h3>Vote for your leader</h3>
+            <p>Avoid mocking your discussion partner’s opinions. This doesn’t mean you should avoid any humor or sarcasm – just remember to keep it respectful. Otherwise, you might find yourself getting a taste of your own medicine and the conversation can become an insult contest rather than a mature exchange. </p>
+            <br>
+            <h3>Comment about your leader</h3>
           </div>
-    </div>
-    
-    
-    <div class = "foooter">
+            <div class="textContainer1">
+            <p>If you see comments that break these rules, please report them. Do not feed the trolls or participate in internet fights by responding to nonconstructive content.It doesn't matter who started. Users who repeatedly break our behavior rules will continue to be banned.</p>
+            <br>
+            <h3>Vote for your leader</h3>
+            </div>
+      </div>
+      
+      
+      <div class = "foooter">
 
-    <div id="footerline">
-      <hr>
-    </div>
-    <div id="footertext">
-      <p>Powered by: Sai krishna Gaddipati</p>
-      <h6> This site is best viewed in Firefox 3.5 and above ,IE 9 and above,chrome 18 and above. Check your browser version</h6>
-    </div>
-    <div class="textcontainer">
-    <br>
-    <br>
-  <div>PRESS</div><div>ABOUT</div><div>CAREERS</div><div>HELP</div><div>F.A.Q.</div><div>TERMS OF USE</div><div>PRIVACY POLICY </div>
-</div>
-</body>
+        <div id="footerline">
+          <hr>
+        </div>
+          <div id="footertext">
+            <p>Powered by: Sai krishna Gaddipati</p>
+            <h6> This site is best viewed in Firefox 3.5 and above ,IE 9 and above,chrome 18 and above. Check your browser version</h6>
+          </div>
+        <div class="textcontainer">
+          <br>
+          <br>
+            <div>PRESS</div><div>ABOUT</div><div>CAREERS</div><div>HELP</div><div>F.A.Q.</div><div>TERMS OF USE</div><div>PRIVACY POLICY </div>
+        </div>
+      </div>
+  </body>
 </html>

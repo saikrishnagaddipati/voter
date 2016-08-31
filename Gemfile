@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'impressionist'
 gem 'chartkick'
 gem 'groupdate'
+gem 'cancancan'
+gem 'rolify'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
