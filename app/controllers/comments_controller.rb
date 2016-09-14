@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
 
   # GET /comments
   # GET /comments.json
-  byebug
   def index
     @comments = Comment.all
   end

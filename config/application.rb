@@ -15,3 +15,12 @@ module Voter
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+# module AssetsInitializers
+#   class Railtie < Rails::Railtie
+#     initializer "assets_initializers.initialize_rails",
+#                 :group => :assets do |app|
+#       require "#{Rails.root}/config/initializers/facebook.rb" 
+#     end
+#   end
+# end

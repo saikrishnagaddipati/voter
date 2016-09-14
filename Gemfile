@@ -33,6 +33,8 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'cancancan'
 gem 'rolify'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

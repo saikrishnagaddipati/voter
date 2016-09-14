@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :comments
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :links do 
   	member do 
   		put "like", to: "links#upvote"
