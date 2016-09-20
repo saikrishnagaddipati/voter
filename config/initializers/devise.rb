@@ -259,7 +259,7 @@ Devise.setup do |config|
   # end
 
   config.omniauth :facebook, "1144424925596605", "9a6f98b0c4d6ac3b8aaa137e6f3f1024"
-               
+        callback_url: " http://www.askyourleader.herokuapp.com/callback"        
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.
