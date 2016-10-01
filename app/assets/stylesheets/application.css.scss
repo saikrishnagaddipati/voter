@@ -1,7 +1,6 @@
 	@import "bootstrap-sprockets";
     @import "bootstrap";
 
-    
 	#logo {
 	font-size: 26px;
 	font-weight: 700;
@@ -166,4 +165,11 @@
   margin-left: 600px;
   color: #286090;
   font-size: 35px;
+}
+
+#download_options{
+    margin-top: 1em;
+    margin-left: 20em;
+    color: grey;
+    font-size: 100%;
 }

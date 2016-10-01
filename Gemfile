@@ -35,6 +35,7 @@ gem 'cancancan'
 gem 'rolify'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'responders'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
