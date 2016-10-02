@@ -24,5 +24,5 @@ class DownloadsController < ApplicationController
                 type: 'text/plain; charset=UTF-8;',
                 filename: "Demo #{Time.current.to_formatted_s(:db)}.txt"
         end
-	end
+	end 
 end
