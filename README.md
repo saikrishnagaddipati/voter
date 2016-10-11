@@ -1,4 +1,4 @@
-Voter is an open source information exchange build on Ruby on Rails with a Postgres database managed for the DC Voter Benefit Exchange of states.
+Voter is an open source information exchange build on Ruby on Rails with a Postgres database managed for the Voter Benefit Exchange of states.
 
 Ruby version 2.3.1
 Rails version 5.0
